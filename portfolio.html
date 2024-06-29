@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EllaMart - Modern Electronics Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+     
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+   <header class="bg-white shadow">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">EllaMart</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-gray-700 hover:text-blue-600">Home</a></li>
+                    <li class="menu-item relative group">
+                        <a href="#" class="text-gray-700 hover:text-blue-600">Shop</a>
+                        <div class="mega-menu">
+                            <ul>
+                                <li><a href="#" class="text-blue-600 hover:underline">Laptops</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Smartphones</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Accessories</a></li>
+                                <li><a href="#" class="text-blue-600 hover:underline">Gaming</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#" class="text-gray-700 hover:text-blue-600">About</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-blue-600">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <input type="text" placeholder="Search..." class="p-2 border border-gray-300 rounded">
+                <div class="flex items-center space-x-2">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"></path>
+                        </svg>
+                        <span>Login</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2h-5v2zM7 20H2v-2h5v2zM16 4H8v6H4v2h4v4h8v-4h4v-2h-4V4z"></path>
+                        </svg>
+                        <span>Cart (0)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white" x-data="{ slide: 1 }">
+        <div class="container mx-auto p-8 flex items-center justify-between">
+            <div class="w-1/2">
+                <h1 class="text-4xl font-bold mb-4">Welcome to EllaMart</h1>
+                <p class="text-lg mb-8">Your one-stop shop for the latest in electronics.</p>
+                <a href="#" class="bg-white text-blue-600 py-2 px-4 rounded-full shadow hover:bg-gray-200 transition">Shop Now</a>
+                <a href="#" class="bg-yellow-500 text-white py-2 px-4 rounded-full shadow hover:bg-yellow-400 transition mt-4">Get 20% Off</a>
+            </div>
+            <div class="w-1/2">
+                <div class="relative overflow-hidden rounded-lg shadow-lg">
+                    <div class="flex transition-transform duration-700" :style="{ transform: 'translateX(-' + (slide - 1) * 100 + '%)' }">
+                        <img src="https://blog.carts.guru/hubfs/Launch%20a%20New%20Product.png" alt="Slide 1" class="w-full">
+                        <img src="https://cdn.prod.website-files.com/5e86c7170f1ab21474c3f2a4/60b8a6fd214a73b354bbbf73_ecommerce_product_listing_photos_(3)_(1).jpg" alt="Slide 2" class="w-full">
+                        <img src="https://cdn.dribbble.com/userupload/12393670/file/original-6eaef3cae12f1dcbd9d9d3134061a8b0.png?resize=400x300&vertical=center" alt="Slide 3" class="w-full">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-between p-4">
+                        <button @click="slide = slide === 1 ? 3 : slide - 1" class="text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2">&larr;</button>
+                        <button @click="slide = slide === 3 ? 1 : slide + 1" class="text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Shop by Category</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Surface-Laptop-Go-3_OG_Twitter-image?scl=1" alt="Category 1" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Laptops</h3>
+                <p class="text-gray-700 mb-4">Explore the latest laptops with cutting-edge technology.</p>
+                <a href="#" class="text-blue-600 hover:underline">Shop Now</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://www.thestatesman.com/wp-content/uploads/2020/10/apple-12.jpg" alt="Category 2" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Smartphones</h3>
+                <p class="text-gray-700 mb-4">Find the perfect smartphone that fits your needs.</p>
+                <a href="#" class="text-blue-600 hover:underline">Shop Now</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://blog-cdn.el.olx.com.pk/wp-content/uploads/2022/05/19162748/lady-bag.jpg" alt="Category 3" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Accessories</h3>
+                <p class="text-gray-700 mb-4">Get the best accessories for your devices.</p>
+                <a href="#" class="text-blue-600 hover:underline">Shop Now</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://assets.publishing.service.gov.uk/media/6448efd1529eda000c3b046d/gaming-pic.jpg" alt="Category 4" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Gaming</h3>
+                <p class="text-gray-700 mb-4">Check out the latest gaming consoles and games.</p>
+                <a href="#" class="text-blue-600 hover:underline">Shop Now</a>
+            </div>
+        </div>
+    </section>
+<section class="cta-section cta-background py-12">
+        <div class="cta-content container mx-auto px-4 py-8 rounded-lg">
+            <h2 class="text-4xl font-bold mb-4 text-white">Exclusive Offer Just for You!</h2>
+            <p class="text-lg mb-8 text-white">Don’t miss out on our limited-time discount. Get it now before it’s gone!</p>
+            <a href="#" class="inline-block bg-blue-500 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-yellow-600 transition">Get Your Discount Now</a>
+        </div>
+    </section>
+
+<section class="container mx-auto p-8">
+    <h2 class="text-3xl font-bold text-center mb-8">Featured Products</h2>
+    <div class="relative">
+        <div class="slider-wrapper overflow-hidden">
+            <div class="flex transition-transform duration-500 ease-in-out" id="product-slider">
+                <!-- Slide 1 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg" alt="Product 1" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 1</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://www.cnet.com/a/img/resize/0302d07e10ba8dc211f7b4e25891ad46dda31976/hub/2023/02/05/f52fdc98-dafc-4d05-b20e-8bd936b49a53/oneplus-11-review-cnet-lanxon-promo-8.jpg?auto=webp&fit=crop&height=675&width=1200" alt="Product 2" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 2</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://blog-cdn.el.olx.com.pk/wp-content/uploads/2022/05/19162748/lady-bag.jpg" alt="Product 3" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 3</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://via.placeholder.com/600x400" alt="Product 4" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 4</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div><div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg" alt="Product 1" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 1</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://www.cnet.com/a/img/resize/0302d07e10ba8dc211f7b4e25891ad46dda31976/hub/2023/02/05/f52fdc98-dafc-4d05-b20e-8bd936b49a53/oneplus-11-review-cnet-lanxon-promo-8.jpg?auto=webp&fit=crop&height=675&width=1200" alt="Product 2" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 2</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://blog-cdn.el.olx.com.pk/wp-content/uploads/2022/05/19162748/lady-bag.jpg" alt="Product 3" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 3</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://via.placeholder.com/600x400" alt="Product 4" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 4</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div><div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg" alt="Product 1" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 1</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://www.cnet.com/a/img/resize/0302d07e10ba8dc211f7b4e25891ad46dda31976/hub/2023/02/05/f52fdc98-dafc-4d05-b20e-8bd936b49a53/oneplus-11-review-cnet-lanxon-promo-8.jpg?auto=webp&fit=crop&height=675&width=1200" alt="Product 2" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 2</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://blog-cdn.el.olx.com.pk/wp-content/uploads/2022/05/19162748/lady-bag.jpg" alt="Product 3" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 3</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+                        <img src="https://via.placeholder.com/600x400" alt="Product 4" class="w-full h-64 object-cover mb-4 rounded">
+                        <h3 class="text-xl font-semibold mb-2">Product 4</h3>
+                        <p class="text-gray-700 mb-4">Product description goes here. This is a brief summary of the product.</p>
+                        <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls absolute inset-0 flex justify-between items-center px-4">
+                <button class="prev bg-white p-2 rounded-full shadow-md hover:bg-gray-100" onclick="prevSlide()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="next bg-white p-2 rounded-full shadow-md hover:bg-gray-100" onclick="nextSlide()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    let slideIndex = 0;
+
+    function showSlides() {
+        const slides = document.getElementById('product-slider');
+        const slideCount = slides.children.length;
+        slideIndex = (slideIndex + 1) % slideCount;
+        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+
+    function prevSlide() {
+        const slides = document.getElementById('product-slider');
+        const slideCount = slides.children.length;
+        slideIndex = (slideIndex - 1 + slideCount) % slideCount;
+        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+        showSlides();
+    }
+
+    setInterval(showSlides, 5000); // Automatically slide every 5 seconds
+</script>
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-4xl font-bold text-center mb-8">Shop by Category</h2>
+        <div class="flex flex-col lg:flex-row">
+            <!-- Tab Buttons -->
+            <div class="w-full lg:w-1/4 bg-gray-100 p-4 rounded-lg lg:rounded-none lg:shadow-lg lg:mr-8">
+                <button class="tab-button py-3 px-6 block text-lg font-medium text-gray-600 hover:text-blue-600 focus:outline-none transition duration-300 mb-2" data-tab="laptops">
+                    Laptops
+                </button>
+                <button class="tab-button py-3 px-6 block text-lg font-medium text-gray-600 hover:text-blue-600 focus:outline-none transition duration-300 mb-2" data-tab="smartphones">
+                    Smartphones
+                </button>
+                <button class="tab-button py-3 px-6 block text-lg font-medium text-gray-600 hover:text-blue-600 focus:outline-none transition duration-300 mb-2" data-tab="accessories">
+                    Accessories
+                </button>
+                <button class="tab-button py-3 px-6 block text-lg font-medium text-gray-600 hover:text-blue-600 focus:outline-none transition duration-300" data-tab="gaming">
+                    Gaming
+                </button>
+            </div>
+            <!-- Tab Content -->
+            <div class="w-full lg:w-3/4">
+                <div id="laptops" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Surface-Laptop-Go-3_OG_Twitter-image?scl=1" alt="Laptop 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Laptop 1</h3>
+                            <p class="text-gray-700 mb-4">High performance laptop with cutting-edge technology.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://www.cnet.com/a/img/resize/0302d07e10ba8dc211f7b4e25891ad46dda31976/hub/2023/02/05/f52fdc98-dafc-4d05-b20e-8bd936b49a53/oneplus-11-review-cnet-lanxon-promo-8.jpg?auto=webp&fit=crop&height=675&width=1200" alt="Laptop 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Laptop 2</h3>
+                            <p class="text-gray-700 mb-4">Powerful laptop designed for professionals.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div><div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Surface-Laptop-Go-3_OG_Twitter-image?scl=1" alt="Laptop 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Laptop 1</h3>
+                            <p class="text-gray-700 mb-4">High performance laptop with cutting-edge technology.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://www.cnet.com/a/img/resize/0302d07e10ba8dc211f7b4e25891ad46dda31976/hub/2023/02/05/f52fdc98-dafc-4d05-b20e-8bd936b49a53/oneplus-11-review-cnet-lanxon-promo-8.jpg?auto=webp&fit=crop&height=675&width=1200" alt="Laptop 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Laptop 2</h3>
+                            <p class="text-gray-700 mb-4">Powerful laptop designed for professionals.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <!-- Add more laptop products as needed -->
+                    </div>
+                </div>
+                <div id="smartphones" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://www.thestatesman.com/wp-content/uploads/2020/10/apple-12.jpg" alt="Smartphone 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Smartphone 1</h3>
+                            <p class="text-gray-700 mb-4">Latest smartphone with advanced features.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://blog-cdn.el.olx.com.pk/wp-content/uploads/2022/05/19162748/lady-bag.jpg" alt="Smartphone 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Smartphone 2</h3>
+                            <p class="text-gray-700 mb-4">Affordable smartphone with essential features.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div><div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://www.thestatesman.com/wp-content/uploads/2020/10/apple-12.jpg" alt="Smartphone 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Smartphone 1</h3>
+                            <p class="text-gray-700 mb-4">Latest smartphone with advanced features.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://blog-cdn.el.olx.com.pk/wp-content/uploads/2022/05/19162748/lady-bag.jpg" alt="Smartphone 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Smartphone 2</h3>
+                            <p class="text-gray-700 mb-4">Affordable smartphone with essential features.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <!-- Add more smartphone products as needed -->
+                    </div>
+                </div>
+                <div id="accessories" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/600x400" alt="Accessory 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Accessory 1</h3>
+                            <p class="text-gray-700 mb-4">High-quality accessory for your devices.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/600x400" alt="Accessory 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Accessory 2</h3>
+                            <p class="text-gray-700 mb-4">Stylish and functional accessory for everyday use.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div> <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/600x400" alt="Accessory 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Accessory 1</h3>
+                            <p class="text-gray-700 mb-4">High-quality accessory for your devices.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/600x400" alt="Accessory 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Accessory 2</h3>
+                            <p class="text-gray-700 mb-4">Stylish and functional accessory for everyday use.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <!-- Add more accessory products as needed -->
+                    </div>
+                </div>
+                <div id="gaming" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://assets.publishing.service.gov.uk/media/6448efd1529eda000c3b046d/gaming-pic.jpg" alt="Gaming Product 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Gaming Product 1</h3>
+                            <p class="text-gray-700 mb-4">Latest gaming console with high-performance specs.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/600x400" alt="Gaming Product 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Gaming Product 2</h3>
+                            <p class="text-gray-700 mb-4">Exciting new games and accessories for gamers.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div><div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://assets.publishing.service.gov.uk/media/6448efd1529eda000c3b046d/gaming-pic.jpg" alt="Gaming Product 1" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Gaming Product 1</h3>
+                            <p class="text-gray-700 mb-4">Latest gaming console with high-performance specs.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            <img src="https://via.placeholder.com/600x400" alt="Gaming Product 2" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Gaming Product 2</h3>
+                            <p class="text-gray-700 mb-4">Exciting new games and accessories for gamers.</p>
+                            <a href="#" class="text-blue-600 hover:underline">View Details</a>
+                        </div>
+                        <!-- Add more gaming products as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove 'active' class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add 'active' class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Set default tab
+            document.querySelector('.tab-button').classList.add('active');
+            document.querySelector('.tab-content').classList.add('active');
+        });
+    </script>
+    <section class="container mx-auto p-8 bg-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-8">Featured Electronics</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-gray-100 p-4 rounded-lg hover:shadow-lg transition">
+                <img src="https://fdn.gsmarena.com/imgroot/news/22/02/huawei-matebook-x-pro-matebook-e-ofic/inline/-1200/gsmarena_003.jpg" alt="Product 1" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Laptop Pro 2022</h3>
+                <p class="text-gray-700 mb-4">High-performance laptop for professionals.</p>
+                <a href="#" class="text-blue-600 hover:underline">View Details</a>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg hover:shadow-lg transition">
+                <img src="https://images-cdn.ubuy.co.in/634d0088267ddb563c103182-simple-mobile-apple-iphone-x-64gb.jpg" alt="Product 2" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Smartphone X</h3>
+                <p class="text-gray-700 mb-4">Latest smartphone with advanced features.</p>
+                <a href="#" class="text-blue-600 hover:underline">View Details</a>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg hover:shadow-lg transition">
+                <img src="https://cdn.thewirecutter.com/wp-content/media/2022/12/noisecancellingheadphones-2048px-8869.jpg" alt="Product 3" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Noise-Cancelling Headphones</h3>
+                <p class="text-gray-700 mb-4">Experience immersive sound quality.</p>
+                <a href="#" class="text-blue-600 hover:underline">View Details</a>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg hover:shadow-lg transition">
+                <img src="https://diamu.com.bd/wp-content/uploads/2021/08/Samsung-Galaxy-Watch-4-Silver-Pink.jpg" alt="Product 4" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Smart Watch 4</h3>
+                <p class="text-gray-700 mb-4">Stay connected with the latest smart watch.</p>
+                <a href="#" class="text-blue-600 hover:underline">View Details</a>
+            </div>
+        </div>
+    </section>
+    
+ <!-- CTA Section -->
+   
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Featured Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Product Card -->
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                <img src="https://www.shopz.com.bd/wp-content/uploads/2024/01/UGREEN-Travel-Case-Gadget-Bag-Electronics-Accessories-Organizer-Upgraded-Version-1-jpg.webp" alt="Product 1" class="w-full h-48 object-cover rounded mb-4">
+                <h3 class="text-xl font-semibold mb-2">Product 1</h3>
+                <div class="rating mb-2">
+                    <span>★★★★★</span> <span>(4.5)</span>
+                </div>
+                <p class="price">$299.99</p>
+                <div class="color-options mb-2">
+                    <div style="background-color: #FF5733;"></div>
+                    <div style="background-color: #33FF57;"></div>
+                    <div style="background-color: #3357FF;"></div>
+                </div>
+                <div class="quantity mb-4">
+                    <input type="number" value="1" min="1" />
+                    <span>Qty</span>
+                </div>
+                <p class="text-gray-700 mb-4">High-quality product description goes here.</p>
+                <div class="product-card-buttons">
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View Cart</a>
+                </div>
+            </div>
+            <!-- Repeat Product Cards as Needed -->
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                <img src="https://dvf83rt16ac4w.cloudfront.net/upload/product/20230530_1685430710_183928.jpeg" alt="Product 2" class="w-full h-48 object-cover rounded mb-4">
+                <h3 class="text-xl font-semibold mb-2">Product 2</h3>
+                <div class="rating mb-2">
+                    <span>★★★★☆</span> <span>(4.0)</span>
+                </div>
+                <p class="price">$199.99</p>
+                <div class="color-options mb-2">
+                    <div style="background-color: #FFC300;"></div>
+                    <div style="background-color: #DAF7A6;"></div>
+                    <div style="background-color: #C70039;"></div>
+                </div>
+                <div class="quantity mb-4">
+                    <input type="number" value="1" min="1" />
+                    <span>Qty</span>
+                </div>
+                <p class="text-gray-700 mb-4">High-quality product description goes here.</p>
+                <div class="product-card-buttons">
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View Cart</a>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtjBdXqIiNVhqi65w8UF5B7QGBomtxJv5yNA&s" alt="Product 3" class="w-full h-48 object-cover rounded mb-4">
+                <h3 class="text-xl font-semibold mb-2">Product 3</h3>
+                <div class="rating mb-2">
+                    <span>★★★★★</span> <span>(5.0)</span>
+                </div>
+                <p class="price">$399.99</p>
+                <div class="color-options mb-2">
+                    <div style="background-color: #581845;"></div>
+                    <div style="background-color: #900C3F;"></div>
+                    <div style="background-color: #C70039;"></div>
+                </div>
+                <div class="quantity mb-4">
+                    <input type="number" value="1" min="1" />
+                    <span>Qty</span>
+                </div>
+                <p class="text-gray-700 mb-4">High-quality product description goes here.</p>
+                <div class="product-card-buttons">
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View Cart</a>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202202/MacBook_Pro.jpg" alt="Product 4" class="w-full h-48 object-cover rounded mb-4">
+                <h3 class="text-xl font-semibold mb-2">Product 4</h3>
+                <div class="rating mb-2">
+                    <span>★★★☆☆</span> <span>(3.5)</span>
+                </div>
+                <p class="price">$149.99</p>
+                <div class="color-options mb-2">
+                    <div style="background-color: #C70039;"></div>
+                    <div style="background-color: #900C3F;"></div>
+                    <div style="background-color: #581845;"></div>
+                </div>
+                <div class="quantity mb-4">
+                    <input type="number" value="1" min="1" />
+                    <span>Qty</span>
+                </div>
+                <p class="text-gray-700 mb-4">High-quality product description goes here.</p>
+                <div class="product-card-buttons">
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="#" class="btn btn-secondary">View Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Posts -->
+    <section class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Latest Posts</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://www.consulting.us/illustrations/news/spotlight/2021-01-26-092016960-The-top-technology-trends-for-2021-and-2022.spot.jpg" alt="Post 1" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">New Tech Trends in 2022</h3>
+                <p class="text-gray-700 mb-4">Discover the latest trends in the tech world.</p>
+                <a href="#" class="text-blue-600 hover:underline">Read More</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://img-cdn.inc.com/image/upload/w_600,ar_16:9,c_fill,g_auto,q_auto:best/images/panoramic/GettyImages-1237552245_491847_r5fjvk.webp" alt="Post 2" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">Top 10 Gadgets for Work</h3>
+                <p class="text-gray-700 mb-4">Boost your productivity with these gadgets.</p>
+                <a href="#" class="text-blue-600 hover:underline">Read More</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/03/technology-trend-freepik-1647963838.jpg" alt="Post 3" class="w-full mb-4 rounded">
+                <h3 class="text-xl font-bold mb-2">How to Choose the Right Laptop</h3>
+                <p class="text-gray-700 mb-4">A guide to finding the perfect laptop for your needs.</p>
+                <a href="#" class="text-blue-600 hover:underline">Read More</a>
+            </div>
+        </div>
+    </section>
+    <section class="banner-section h-72 md:h-96 flex items-center justify-center text-center p-8 bg-white-800">
+        <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Discover the Best Deals of the Season</h1>
+            <p class="text-lg mb-6">Shop now and save on top products across all categories.</p>
+            <a href="#" class="bg-yellow-500 text-black py-3 px-6 rounded-full text-lg font-semibold hover:bg-yellow-600 transition">Shop Now</a>
+        </div>
+    </section>
+
+   
+ <section class="container mx-auto p-8 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center mb-8">What Our Customers Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://via.placeholder.com/100" alt="Customer 1" class="w-20 h-20 rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-semibold text-center mb-2">John Doe</h3>
+                <p class="text-gray-700 text-center">"Excellent products and customer service. I am very satisfied with my purchase!"</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://via.placeholder.com/100" alt="Customer 2" class="w-20 h-20 rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-semibold text-center mb-2">Jane Smith</h3>
+                <p class="text-gray-700 text-center">"The shopping experience was smooth, and the product quality exceeded my expectations."</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-shadow-lg transition">
+                <img src="https://via.placeholder.com/100" alt="Customer 3" class="w-20 h-20 rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-semibold text-center mb-2">Emily Johnson</h3>
+                <p class="text-gray-700 text-center">"I love my new purchase! Great quality and fast delivery. Highly recommended."</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto p-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="#" class="text-2xl font-bold text-blue-600">EllaMart</a>
+                    <p class="mt-2">© 2023 EllaMart. All rights reserved.</p>
+                </div>
+                <div>
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

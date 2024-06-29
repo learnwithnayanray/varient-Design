@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Theme Slider</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        .slide {
+            min-width: 100%;
+            transition: 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .frame {
+            width: 100%;
+            overflow: hidden;
+            border: 4px solid #000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+        .mobile-frame {
+            border-radius: 30px;
+            height: 400px;
+            width: 200px;
+            position: absolute;
+            top: 100px;
+            right: 900px;  
+        }
+        .laptop-frame {
+            position: relative;
+            border-radius: 10px;
+            height: 400px; /* Adjust height as needed */
+        }
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        .slider-controls button {
+            background-color: #000;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+        .slider-controls button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Hero Section -->
+    <section class="container mx-auto p-8">
+        <div class="flex flex-col lg:flex-row items-center">
+            <!-- Text Content -->
+            <div class="lg:w-1/2 p-4 text-center lg:text-left space-y-4">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Creative multi-purpose <span class="text-orange-600">Shopify theme</span></h1>
+                <p class="text-lg text-gray-600 mb-6">#1 Best Selling Shopify Theme of all time on Envato. An all-in-one template for your Shopify store, allowing you to create various structures and meet specific requirements.</p>
+                <div class="flex justify-center lg:justify-start space-x-4">
+                    <button class="px-6 py-3 text-white bg-orange-600 rounded-lg hover:bg-orange-700">Buy Theme</button>
+                    <button class="px-6 py-3 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100">Start FREE Trial</button>
+                </div>
+                <p class="text-sm text-gray-600 mt-4">Start for free, then get your <span class="font-bold">first month for only $1/mo.</span></p>
+            </div>
+            <!-- Slider Content -->
+            <div class="lg:w-1/2 p-4">
+                <div class="flex flex-col space-y-8">
+                    <!-- Laptop Frame -->
+                    <div class="frame laptop-frame relative">
+                        <div class="slider flex" id="laptopSlider">
+                            <!-- Slide 1 -->
+                            <div class="slide">
+                                <img src="https://blog.carts.guru/hubfs/Launch%20a%20New%20Product.png" alt="Shopify Theme Preview" class="w-full h-auto">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="slide">
+                                <img src="https://blog.carts.guru/hubfs/Launch%20a%20New%20Product.png" alt="Placeholder" class="w-full h-auto">
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <div class="slider-controls">
+                            <button onclick="prevSlide('laptopSlider')">&#10094;</button>
+                            <button onclick="nextSlide('laptopSlider')">&#10095;</button>
+                        </div>
+                    </div>
+                    <!-- Mobile Frame -->
+                    <div class="frame mobile-frame relative">
+                        <div class="slider flex" id="mobileSlider">
+                            <!-- Slide 1 -->
+                            <div class="slide">
+                                <img src="https://blog.carts.guru/hubfs/Launch%20a%20New%20Product.png" alt="Shopify Theme Preview" class="w-full h-auto">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="slide">
+                                <img src="https://blog.carts.guru/hubfs/Launch%20a%20New%20Product.png" alt="Placeholder" class="w-full h-auto">
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <div class="slider-controls">
+                            <button onclick="prevSlide('mobileSlider')">&#10094;</button>
+                            <button onclick="nextSlide('mobileSlider')">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showSlide(sliderId, index) {
+            const slides = document.querySelectorAll(`#${sliderId} .slide`);
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${100 * (i - index)}%)`;
+            });
+        }
+
+        function nextSlide(sliderId) {
+            const slider = document.getElementById(sliderId);
+            let currentSlide = parseInt(slider.getAttribute('data-current-slide')) || 0;
+            const totalSlides = slider.querySelectorAll('.slide').length;
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slider.setAttribute('data-current-slide', currentSlide);
+            showSlide(sliderId, currentSlide);
+        }
+
+        function prevSlide(sliderId) {
+            const slider = document.getElementById(sliderId);
+            let currentSlide = parseInt(slider.getAttribute('data-current-slide')) || 0;
+            const totalSlides = slider.querySelectorAll('.slide').length;
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            slider.setAttribute('data-current-slide', currentSlide);
+            showSlide(sliderId, currentSlide);
+        }
+
+        document.querySelectorAll('.slider').forEach(slider => {
+            slider.setAttribute('data-current-slide', 0);
+            showSlide(slider.id, 0);
+        });
+    </script>
+
+</body>
+</html>

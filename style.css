@@ -1,0 +1,219 @@
+body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hover-shadow-lg:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .mega-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            padding: 1rem;
+            min-width: 200px;
+        }
+        .menu-item:hover .mega-menu {
+            display: block;
+        }
+        .mega-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .mega-menu li {
+            margin-bottom: 0.5rem;
+        }
+        .mega-menu a {
+            color: #1d4ed8; /* Tailwind's blue-600 */
+            text-decoration: none;
+        }
+        .mega-menu a:hover {
+            text-decoration: underline;
+        }
+        .login-cart {
+            background-color: #f3f4f6;
+            border-radius: 6px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+        }
+        .login-cart a {
+            color: #4a5568;
+        }
+        .login-cart a:hover {
+            color: #3182ce;
+        }
+         .cta-background {
+            background-image: url('https://media.istockphoto.com/id/1310876390/photo/studio-microphone-banner-with-red-and-blue-neon-lights.jpg?s=612x612&w=0&k=20&c=F1AODzEkNkSffeW-nkUGvXWhmne2UnltBPk9BsaFOgY=');  
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .cta-content {
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.5);  
+        }
+        .slider-wrapper {
+            position: relative;
+        }
+        .slider-controls button {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .slider-controls button:hover {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .slider-controls button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #3490dc;
+        }
+        .slider-controls .prev {
+            left: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .slider-controls .next {
+            right: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .cta-section {
+            background-color: #f3f4f6; /* Light gray background color */
+        }
+        .cta-button {
+            background-color: #f59e0b; /* Customize this color as needed */
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #d97706; /* Customize this hover color as needed */
+        }
+        .cta-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(248, 113, 25, 0.5); /* Customize focus ring as needed */
+        }
+        .tab-button {
+            border-bottom: 2px solid transparent;
+        }
+        .tab-button.active {
+            border-bottom-color: #3b82f6; /* Blue underline for active tab */
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .product-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        .rating span {
+            color: #FFD700; /* Gold color for stars */
+            font-size: 1.125rem;
+        }
+        .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1f2937; /* Dark color for price */
+            margin-bottom: 1rem;
+        }
+        .color-options {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .color-options div {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .color-options div:hover {
+            border-color: #3b82f6; /* Blue color on hover */
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .quantity input {
+            width: 3rem;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.25rem;
+        }
+        .product-card-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-primary {
+            background-color: #1f2937; /* Dark background */
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #374151; /* Darker background on hover */
+        }
+        .btn-secondary {
+            background-color: #3b82f6; /* Blue background */
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+        }
+        .swiper-container {
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .swiper-slide {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            padding: 20px;
+        }
+        .swiper-slide:hover {
+            transform: scale(1.05);
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #000;
+        }
